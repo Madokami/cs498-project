@@ -1,0 +1,17 @@
+Environment setup
+- Install python 3.8 or later
+- Install alpaca python API with "pip3 install alpaca-trade-api". 
+  - More instructions can be found on https://github.com/alpacahq/alpaca-trade-api-python
+
+Create config.ini with your API key, secret, and API endpoint. This will be needed by the python API for authentication.
+config.ini should look like the following:
+[profile]
+APCA_API_KEY_ID=<YOUR_KEY>
+APCA_API_SECRET_KEY=<YOUR_SECRET>
+APCA_API_ENDPOINT=https://paper-api.alpaca.markets
+
+Setup a cronjob to run alpaca_trader_run_hourly.py:
+On the raspberry pi, this can be done with "crontab -e" adding the following line:
+35 6-12 * * 1-5 python3 /home/pi/workspace/alpaca-trade/alpaca_trader_run_hourly.py
+
+The above line will setup the script to run every hour from 6:35 to 12:35 on every weekday between Monday and Friday.

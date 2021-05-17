@@ -1,0 +1,7 @@
+profile
+config.ini
+logs
+*.png
+*.ipynb_checkpoints
+__pycache__
+test
